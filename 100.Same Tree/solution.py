@@ -21,3 +21,11 @@ class Solution(object):
             return p.val == q.val and self.isSameTree(p.left, q.left) \
                 and self.isSameTree(p.right, q.right)
         return p == q
+
+    def is_same_tree(self, p, q):
+        '''
+        inspired by bbs discussion
+        '''
+        def t(n):
+            return n and (n.val, t(n.left), t(n.right))
+        return t(p) == t(q)
